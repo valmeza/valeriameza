@@ -1,0 +1,33 @@
+---
+const { projects = [] } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-xl border border-terminal-border/70 bg-terminal-bg">
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse text-left text-sm">
+      <thead class="bg-terminal-panelAlt text-terminal-muted">
+        <tr>
+          <th class="px-4 py-3 font-medium">Project</th>
+          <th class="px-4 py-3 font-medium">Stack</th>
+          <th class="px-4 py-3 font-medium">Focus</th>
+          <th class="px-4 py-3 font-medium">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {projects.map((project) => (
+          <tr class="border-t border-terminal-border/50">
+            <td class="px-4 py-4 align-top font-medium text-terminal-text">{project.name}</td>
+            <td class="px-4 py-4 align-top text-terminal-muted">{project.stack}</td>
+            <td class="px-4 py-4 align-top text-terminal-muted">{project.focus}</td>
+            <td class="px-4 py-4 align-top text-terminal-accent">{project.status}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <div class="border-t border-terminal-border/70 px-4 py-3 text-xs text-terminal-muted">
+    <span class="text-terminal-info">[J]</span> next project
+    <span class="mx-2 text-terminal-border">|</span>
+    <span class="text-terminal-info">[K]</span> previous project
+  </div>
+</div>

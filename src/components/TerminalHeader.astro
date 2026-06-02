@@ -1,0 +1,55 @@
+---
+const commands = [
+  'astro create --portfolio',
+  'tailwind init --tui',
+  'deploy --target github-pages',
+];
+---
+
+<header class="relative overflow-hidden border-b border-terminal-border/70 bg-terminal-panel/90">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-terminal-muted">
+      <p class="tracking-[0.2em] uppercase">val meza / portfolio shell</p>
+      <nav class="flex flex-wrap gap-3">
+        <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#about">[1] About</a>
+        <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#skills">[2] Skills</a>
+        <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#projects">[3] Projects</a>
+      </nav>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+      <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 rounded-full border border-terminal-border/70 bg-terminal-panelAlt px-3 py-1 text-xs uppercase tracking-[0.25em] text-terminal-muted">
+          <span class="h-2 w-2 rounded-full bg-terminal-accent"></span>
+          terminal interface online
+        </div>
+        <div class="space-y-3">
+          <p class="terminal-line text-sm text-terminal-accent sm:text-base">$ whoami</p>
+          <h1 class="text-4xl font-semibold tracking-tight text-terminal-text sm:text-6xl">
+            Val Meza builds
+            <span class="text-terminal-accent">technical interfaces</span>
+            with a calm, data-dense edge.
+          </h1>
+          <p class="max-w-2xl text-sm leading-6 text-terminal-muted sm:text-base">
+            This portfolio uses a TUI-inspired layout to present projects, skills, and background with keyboard-first cues and a static, high-performance build.
+          </p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-terminal-border/70 bg-terminal-bg/80 p-4 text-sm shadow-terminal">
+        <div class="mb-3 flex items-center justify-between text-terminal-muted">
+          <span>session.log</span>
+          <span>ready</span>
+        </div>
+        <ul class="space-y-2 text-terminal-text">
+          {commands.map((command) => (
+            <li class="flex items-start gap-3">
+              <span class="text-terminal-accent">$</span>
+              <span>{command}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

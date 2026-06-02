@@ -1,0 +1,24 @@
+---
+const {
+  title = 'Val Meza | Technical Portfolio',
+  description = 'Terminal-inspired technical portfolio.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-terminal-bg text-terminal-text">
+    <div class="min-h-screen bg-terminal-bg">
+      <slot name="top" />
+      <main class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

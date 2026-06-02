@@ -1,0 +1,13 @@
+---
+const { title, eyebrow = '', id = '' } = Astro.props;
+---
+
+<section id={id} class="rounded-2xl border border-terminal-border bg-terminal-panel shadow-terminal">
+  <div class="border-b border-terminal-border/70 px-4 py-3 sm:px-6">
+    {eyebrow ? <p class="text-xs uppercase tracking-[0.25em] text-terminal-muted">{eyebrow}</p> : null}
+    <h2 class="mt-1 text-lg font-semibold text-terminal-text sm:text-xl">{title}</h2>
+  </div>
+  <div class="px-4 py-5 sm:px-6">
+    <slot />
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TerminalHeader from '../components/TerminalHeader.astro';
+import SectionFrame from '../components/SectionFrame.astro';
+import ProjectTable from '../components/ProjectTable.astro';
+import '../styles/global.css';
+
+const skills = ['Astro', 'TypeScript', 'Tailwind CSS', 'Accessibility', 'Static deployment', 'Design systems'];
+
+const projects = [
+  {
+    name: 'Terminal Portfolio',
+    stack: 'Astro + Tailwind',
+    focus: 'TUI layout, accessibility, deployment',
+    status: 'In progress',
+  },
+  {
+    name: 'Automation Toolkit',
+    stack: 'TypeScript + CLI',
+    focus: 'Operational workflows and repeatable tasks',
+    status: 'Planned',
+  },
+  {
+    name: 'Design System Notes',
+    stack: 'Markdown + tokens',
+    focus: 'Reusable patterns and UI consistency',
+    status: 'Archived',
+  },
+];
+---
+
+<BaseLayout>
+  <TerminalHeader slot="top" />
+
+  <SectionFrame id="about" eyebrow="01 / profile" title="About">
+    <div class="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+      <p class="max-w-3xl text-sm leading-7 text-terminal-text sm:text-base">
+        I build interfaces that prioritize structure, speed, and clarity. This portfolio intentionally reads like a terminal session so the content stays dense, technical, and easy to scan.
+      </p>
+      <div class="rounded-xl border border-terminal-border/70 bg-terminal-panelAlt p-4 text-sm text-terminal-muted">
+        <p class="text-terminal-info">status</p>
+        <p class="mt-2">Focused on frontend systems, pragmatic UX, and tools that feel precise rather than decorative.</p>
+      </div>
+    </div>
+  </SectionFrame>
+
+  <SectionFrame id="skills" eyebrow="02 / capability matrix" title="Skills">
+    <ul class="flex flex-wrap gap-3">
+      {skills.map((skill) => (
+        <li class="rounded-full border border-terminal-border/70 bg-terminal-bg px-3 py-2 text-sm text-terminal-text">
+          {skill}
+        </li>
+      ))}
+    </ul>
+  </SectionFrame>
+
+  <SectionFrame id="projects" eyebrow="03 / active work" title="Projects">
+    <ProjectTable projects={projects} />
+  </SectionFrame>
+
+  <footer class="pb-4 text-xs text-terminal-muted">
+    <div class="flex flex-col gap-2 border-t border-terminal-border/70 pt-4 sm:flex-row sm:items-center sm:justify-between">
+      <p>Keyboard cues are surfaced inline so the interface stays readable without hidden controls.</p>
+      <p class="text-terminal-info">build target: GitHub Pages</p>
+    </div>
+  </footer>
+</BaseLayout>
