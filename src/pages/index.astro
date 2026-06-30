@@ -5,7 +5,19 @@ import SectionFrame from '../components/SectionFrame.astro';
 import ProjectTable from '../components/ProjectTable.astro';
 import '../styles/global.css';
 
-const skills = ['Astro', 'TypeScript', 'Tailwind CSS', 'Accessibility', 'Static deployment', 'Design systems'];
+const skills = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'Java',
+  'SQL',
+  'Oracle DB',
+  'Oracle APEX',
+  'OCI',
+  'DevOps',
+  'AI',
+];
+const developerStartDate = '2020-02-01';
 
 const projects = [
   {
@@ -35,11 +47,14 @@ const projects = [
   <SectionFrame id="about" eyebrow="01 / profile" title="About">
     <div class="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
       <p class="max-w-3xl text-sm leading-7 text-terminal-text sm:text-base">
-        I build interfaces that prioritize structure, speed, and clarity. This portfolio intentionally reads like a terminal session so the content stays dense, technical, and easy to scan.
+        I'm a software engineer driven by the thrill of solving hard problems. I build interfaces that prioritize structure, speed, and clarity.
       </p>
       <div class="rounded-xl border border-terminal-border/70 bg-terminal-panelAlt p-4 text-sm text-terminal-muted">
         <p class="text-terminal-info">status</p>
-        <p class="mt-2">Focused on frontend systems, pragmatic UX, and tools that feel precise rather than decorative.</p>
+        <p class="mt-2">Fullstack developer with my forte in backend systems, databases, and cloud infrastructure.</p>
+        <p class="mt-3 text-terminal-info">
+          <span class="text-terminal-muted">developer for</span> <span id="developer-days" data-start-date={developerStartDate}>calculating...</span>
+        </p>
       </div>
     </div>
   </SectionFrame>
@@ -65,3 +80,19 @@ const projects = [
     </div>
   </footer>
 </BaseLayout>
+
+<script is:inline>
+  const daysNode = document.getElementById('developer-days');
+
+  if (daysNode) {
+    const updateDeveloperDays = () => {
+      const startDate = new Date(daysNode.dataset.startDate || '');
+      const now = new Date();
+      const elapsedMs = now.getTime() - startDate.getTime();
+      const elapsedDays = Math.max(0, Math.floor(elapsedMs / (1000 * 60 * 60 * 24)));
+      daysNode.textContent = `${elapsedDays.toLocaleString()} days`;
+    };
+
+    updateDeveloperDays();
+  }
+</script>
