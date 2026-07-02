@@ -1,4 +1,4 @@
-# Val Meza Portfolio
+# Valeria Meza Portfolio
 
 A static personal portfolio built with Astro and Tailwind CSS. The site uses a terminal-inspired UI to present profile, skills, and project content in a compact, technical format.
 

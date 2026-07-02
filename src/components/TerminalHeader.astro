@@ -1,7 +1,7 @@
 ---
 const commands = [
-  'astro create --portfolio',
-  'tailwind init --tui',
+  'whoami --full-name',
+  'grep -R "mysteries" ~/notes',
   'deploy --target github-pages',
 ];
 ---
@@ -9,7 +9,8 @@ const commands = [
 <header class="relative overflow-hidden border-b border-terminal-border/70 bg-terminal-panel/90">
   <div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
     <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-terminal-muted">
-      <p class="tracking-[0.2em] uppercase">val meza / portfolio shell</p>
+      <!-- <p class="tracking-[0.2em] uppercase">valeria meza / portfolio shell</p> -->
+      <p class="tracking-[0.2em] uppercase">portfolio shell</p>
       <nav class="flex flex-wrap gap-3">
         <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#about">[1] About</a>
         <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#skills">[2] Skills</a>
@@ -26,12 +27,10 @@ const commands = [
         <div class="space-y-3">
           <p class="terminal-line text-sm text-terminal-accent sm:text-base">$ whoami</p>
           <h1 class="text-4xl font-semibold tracking-tight text-terminal-text sm:text-6xl">
-            Val Meza builds
-            <span class="text-terminal-accent">technical interfaces</span>
-            with a calm, data-dense edge.
+            Valeria Meza
           </h1>
           <p class="max-w-2xl text-sm leading-6 text-terminal-muted sm:text-base">
-            This portfolio uses a TUI-inspired layout to present projects, skills, and background with keyboard-first cues and a static, high-performance build.
+            Software engineer. Puzzle solver. Builder of practical systems with a nerdy edge.
           </p>
         </div>
       </div>
