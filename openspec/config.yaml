@@ -1,20 +1,29 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Project: Valeria Meza's static personal portfolio.
+  Stack: Astro 7, TypeScript, Tailwind CSS 3, PostCSS, and Node.js 18+.
+  Deployment: static site targeting GitHub Pages with the custom domain valeriameza.com.
+  Layout: a single-page, terminal-inspired portfolio with compact framed sections for profile, capability matrix, and projects.
+  Visual style: dark terminal palette, monospace typography, boxed sections, subtle gradients, and responsive wrapping on narrow screens.
+  Content style: concise, technical, and credible. Prefer short copy that reads like a professional portfolio, not marketing prose.
+  Codebase conventions: keep page content in src/pages/index.astro, shared framing in src/components, layout chrome in src/layouts, and global visual treatment in src/styles/global.css.
+  Formatting: use ASCII by default, short headings, flat bullet lists, and explicit labels such as "01 / profile" and "02 / capability matrix". Keep generated prose scannable and avoid filler.
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  proposal:
+    - State the problem, user-visible outcome, scope, and non-goals in that order.
+    - Keep proposals concise and tied to the portfolio's terminal-inspired presentation.
+    - Do not expand content changes into unrelated architecture or deployment work.
+  design:
+    - Describe how the change fits the existing compact terminal UI.
+    - Call out spacing, wrapping, and readability for desktop and mobile.
+    - Reuse current component patterns unless the change explicitly replaces them.
+  specs:
+    - Write SHALL requirements that map to observable page behavior or content.
+    - Use exact labels, copy, and counts when they matter to acceptance.
+    - Keep each requirement narrow and testable instead of combining unrelated behavior.
+  tasks:
+    - Order tasks from content changes to implementation to verification.
+    - Keep tasks small, concrete, and independently checkable.
+    - Include build or preview verification for every user-visible change.
