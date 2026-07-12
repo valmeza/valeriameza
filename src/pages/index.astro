@@ -39,6 +39,8 @@ const projects = [
     status: 'Archived',
   },
 ];
+
+const currentYear = new Date().getFullYear();
 ---
 
 <BaseLayout>
@@ -75,8 +77,8 @@ const projects = [
 
   <footer class="pb-4 text-xs text-terminal-muted">
     <div class="flex flex-col gap-2 border-t border-terminal-border/70 pt-4 sm:flex-row sm:items-center sm:justify-between">
-      <p>The layout stays compact and readable across desktop and mobile widths.</p>
-      <p class="text-terminal-info">build target: GitHub Pages</p>
+      <p>Built as a personal portfolio that reads like a concise resume and about-me page.</p>
+      <p class="text-terminal-info">Copyright {currentYear} Valeria Meza</p>
     </div>
   </footer>
 </BaseLayout>
