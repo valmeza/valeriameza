@@ -1,27 +1,26 @@
 # Valeria Meza Portfolio
 
-A static personal portfolio built with Astro and Tailwind CSS. The site uses a terminal-inspired UI to present profile, skills, and project content in a compact, technical format.
+A static personal portfolio built with Astro and Tailwind CSS 4. The site uses a terminal-inspired UI to present profile, skills, and project content in a compact, technical format.
 
 ## Overview
 
-- Static Astro site with Tailwind-based styling
+- Static Astro site with Tailwind 4 styling through the Vite plugin
 - Terminal/TUI visual language with monospace typography and boxed sections
 - Responsive single-page layout with About, Skills, and Projects sections
 - Built for GitHub Pages deployment with the production site configured at `valeriameza.com`
 
 ## Tech Stack
 
-- Astro
-- Tailwind CSS
-- PostCSS
+- Astro 7
+- Tailwind CSS 4
 - TypeScript
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ recommended
-- npm
+- Node.js 22.12+ recommended
+- npm 9.6.5+
 
 ### Install dependencies
 
@@ -71,7 +70,8 @@ Open the local Astro dev URL shown in the terminal.
 - `src/components/TerminalHeader.astro` renders the hero and navigation
 - `src/components/SectionFrame.astro` provides the framed TUI section wrapper
 - `src/components/ProjectTable.astro` renders the projects table and keyboard cues
-- `src/styles/global.css` defines the background treatment, typography, and cursor-style animation
+- `astro.config.mjs` wires in `@tailwindcss/vite`
+- `src/styles/global.css` imports Tailwind and defines the background treatment, typography, and cursor-style animation
 - `tailwind.config.mjs` extends the theme with the terminal color palette, shadows, and mono font stack
 
 ## Deployment
