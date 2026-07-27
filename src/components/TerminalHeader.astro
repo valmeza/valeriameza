@@ -1,53 +1,23 @@
----
-const commands = [
-  'whoami --full-name',
-  'grep --recursive "mysteries" ~/notes',
-  'deploy --target pages',
-];
----
-
 <header class="relative overflow-hidden border-b border-terminal-border/70 bg-terminal-panel/90">
   <div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-terminal-muted">
-      <!-- <p class="tracking-[0.2em] uppercase">valeria meza / portfolio shell</p> -->
-      <p class="tracking-[0.2em] uppercase">portfolio shell</p>
-      <nav class="flex flex-wrap gap-3">
-        <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#about">[1] About</a>
-        <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#skills">[2] Skills</a>
-        <a class="transition hover:text-terminal-accent focus:outline-none focus-visible:text-terminal-accent" href="#projects">[3] Projects</a>
-      </nav>
-    </div>
+    <nav
+      class="mx-auto inline-flex flex-wrap items-center justify-center gap-4 rounded-full border border-terminal-border/70 bg-terminal-panelAlt px-4 py-2 text-xs uppercase tracking-[0.2em] text-terminal-muted"
+      aria-label="Primary"
+    >
+      <a class="transition focus:outline-none" href="#about">[1] About</a>
+      <a class="transition focus:outline-none" href="#skills">[2] Skills</a>
+      <a class="transition focus:outline-none" href="#projects">[3] Projects</a>
+    </nav>
 
-    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-      <div class="space-y-4">
-        <div class="inline-flex items-center gap-2 rounded-full border border-terminal-border/70 bg-terminal-panelAlt px-3 py-1 text-xs uppercase tracking-[0.25em] text-terminal-muted">
-          <span class="h-2 w-2 rounded-full bg-terminal-accent"></span>
-          terminal interface online
-        </div>
-        <div class="space-y-3">
-          <p class="terminal-line text-sm text-terminal-accent sm:text-base">$ whoami</p>
-          <h1 class="text-4xl font-semibold tracking-tight text-terminal-text sm:text-6xl">
-            Valeria Meza
-          </h1>
-          <p class="max-w-2xl text-sm leading-6 text-terminal-muted sm:text-base">
-            Software engineer. Puzzle solver. Builder of practical systems with a nerdy edge.
-          </p>
-        </div>
-      </div>
-
-      <div class="rounded-2xl border border-terminal-border/70 bg-terminal-bg/80 p-4 text-sm shadow-terminal">
-        <div class="mb-3 flex items-center justify-between text-terminal-muted">
-          <span>session.log</span>
-          <span>ready</span>
-        </div>
-        <ul class="space-y-2 text-terminal-text">
-          {commands.map((command) => (
-            <li class="flex items-start gap-3">
-              <span class="text-terminal-accent">$</span>
-              <span>{command}</span>
-            </li>
-          ))}
-        </ul>
+    <div class="max-w-3xl space-y-4">
+      <div class="space-y-3">
+        <p class="terminal-line text-sm text-terminal-accent sm:text-base">$ whoami</p>
+        <h1 class="text-4xl font-semibold tracking-tight text-terminal-text sm:text-6xl">
+          Valeria Meza
+        </h1>
+        <p class="max-w-none text-sm leading-6 text-terminal-muted sm:whitespace-nowrap sm:text-base">
+          Software engineer. Puzzle solver. Builder of practical systems with a nerdy edge.
+        </p>
       </div>
     </div>
   </div>

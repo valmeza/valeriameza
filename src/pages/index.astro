@@ -11,7 +11,9 @@ const skills = [
   'JavaScript',
   'Java',
   'SQL',
+  'PL/SQL',
   'Oracle DB',
+  'MySQL',
   'Oracle APEX',
   'OCI',
   'DevOps',
@@ -53,7 +55,11 @@ const currentYear = new Date().getFullYear();
       </p>
       <div class="rounded-xl border border-terminal-border/70 bg-terminal-panelAlt p-4 text-sm text-terminal-muted">
         <p class="text-terminal-info">status</p>
-        <p class="mt-2">Software Engineer focused on backend systems, databases, and cloud infrastructure.</p>
+        <ul class="mt-2 space-y-1">
+          <li><span class="text-terminal-info">role:</span> Software Engineer</li>
+          <li><span class="text-terminal-info">focus:</span> backend systems, databases, cloud infrastructure</li>
+          <li><span class="text-terminal-info">signal:</span> stable</li>
+        </ul>
         <p class="mt-3 text-terminal-info">
           <span class="text-terminal-muted">developer for</span> <span id="developer-days" data-start-date={developerStartDate}>calculating...</span>
         </p>
@@ -75,16 +81,41 @@ const currentYear = new Date().getFullYear();
     <ProjectTable projects={projects} />
   </SectionFrame>
 
-  <footer class="pb-4 text-xs text-terminal-muted">
-    <div class="flex flex-col gap-2 border-t border-terminal-border/70 pt-4 sm:flex-row sm:items-center sm:justify-between">
-      <p>Built as a personal portfolio that reads like a concise resume and about-me page.</p>
-      <p class="text-terminal-info">Copyright {currentYear} Valeria Meza</p>
-    </div>
+  <footer class="pb-4 pt-4 text-center text-xs text-terminal-info">
+    <p>© {currentYear} Valeria Meza</p>
+    <nav class="mt-2 flex justify-center gap-4" aria-label="Social links">
+      <a
+        class="social-link inline-flex items-center justify-center rounded-full border border-terminal-border/70 p-2"
+        href="https://github.com/valmeza"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.62 2 12.31c0 4.55 2.87 8.41 6.84 9.78.5.1.68-.22.68-.5v-1.95c-2.78.62-3.37-1.22-3.37-1.22-.46-1.22-1.13-1.55-1.13-1.55-.92-.65.07-.64.07-.64 1.02.08 1.56 1.08 1.56 1.08.9 1.6 2.35 1.14 2.93.87.09-.67.35-1.14.63-1.4-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.06a9.14 9.14 0 0 1 5 0c1.9-1.34 2.75-1.06 2.75-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92v2.84c0 .28.18.61.69.5A10.38 10.38 0 0 0 22 12.31C22 6.62 17.52 2 12 2Z" />
+        </svg>
+        <span class="sr-only">GitHub</span>
+      </a>
+      <a
+        class="social-link inline-flex items-center justify-center rounded-full border border-terminal-border/70 p-2"
+        href="https://www.linkedin.com/in/valeria-meza/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+          <path d="M6.94 6.5A1.94 1.94 0 1 1 3 6.5a1.94 1.94 0 0 1 3.94 0ZM3.35 8.75h3.2V21h-3.2V8.75ZM9.4 8.75h3.06v1.67h.04c.43-.82 1.5-1.68 3.1-1.68 3.32 0 3.93 2.19 3.93 5.04V21h-3.2v-5.47c0-1.3-.03-2.98-1.82-2.98-1.83 0-2.11 1.43-2.11 2.89V21H9.4V8.75Z" />
+        </svg>
+        <span class="sr-only">LinkedIn</span>
+      </a>
+    </nav>
   </footer>
 </BaseLayout>
 
 <script is:inline>
   const daysNode = document.getElementById('developer-days');
+  const sectionLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
+  const flashTimers = new Map();
 
   if (daysNode) {
     const updateDeveloperDays = () => {
@@ -97,4 +128,62 @@ const currentYear = new Date().getFullYear();
 
     updateDeveloperDays();
   }
+
+  const flashSection = (section) => {
+    const existingTimer = flashTimers.get(section.id);
+
+    if (existingTimer) {
+      window.clearTimeout(existingTimer);
+    }
+
+    section.classList.add('is-flash');
+
+    const timer = window.setTimeout(() => {
+      section.classList.remove('is-flash');
+      flashTimers.delete(section.id);
+    }, 1800);
+
+    flashTimers.set(section.id, timer);
+  };
+
+  sectionLinks.forEach((link) => {
+    const hash = link.getAttribute('href');
+
+    if (!hash || !hash.startsWith('#')) {
+      return;
+    }
+
+    link.addEventListener('click', () => {
+      const section = document.querySelector(hash);
+
+      if (!(section instanceof HTMLElement)) {
+        return;
+      }
+
+      flashSection(section);
+    });
+  });
 </script>
+
+<style>
+  .social-link {
+    color: inherit;
+    transition:
+      color 160ms ease,
+      border-color 160ms ease,
+      background-color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    color: #f5d36a;
+    border-color: #f5d36a;
+    background-color: rgba(245, 211, 106, 0.15);
+    box-shadow:
+      0 0 0 1px rgba(245, 211, 106, 0.25),
+      0 0 18px rgba(245, 211, 106, 0.18);
+    transform: translateY(-1px);
+  }
+</style>
