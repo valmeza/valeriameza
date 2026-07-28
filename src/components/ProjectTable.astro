@@ -17,6 +17,15 @@ const { projects = [] } = Astro.props;
         {projects.map((project) => (
           <tr class="border-t border-terminal-border/50">
             <td class="px-4 py-4 align-top font-medium text-terminal-text">
+              <div class="space-y-3">
+                {project.thumbnailUrl ? (
+                  <img
+                    class="project-thumb"
+                    src={project.thumbnailUrl}
+                    alt={project.thumbnailAlt || `${project.name} preview`}
+                    loading="lazy"
+                  />
+                ) : null}
               {project.repoUrl ? (
                 <a
                   class="project-link inline-flex w-full items-center justify-between gap-2 leading-none transition focus:outline-none"
@@ -33,6 +42,7 @@ const { projects = [] } = Astro.props;
               ) : (
                 <span>{project.name}</span>
               )}
+              </div>
             </td>
             <td class="px-4 py-4 align-top text-terminal-muted">{project.stack}</td>
             <td class="px-4 py-4 align-top text-terminal-muted">{project.focus}</td>
@@ -45,6 +55,17 @@ const { projects = [] } = Astro.props;
 </div>
 
 <style>
+  .project-thumb {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(33, 65, 106, 0.7);
+    background: #08111d;
+    box-shadow: 0 0 0 1px rgba(158, 210, 255, 0.05), 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
   .project-link__icon {
     display: block;
     width: 18px;
