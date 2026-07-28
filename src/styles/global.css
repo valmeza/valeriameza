@@ -25,6 +25,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 160ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: #f5d36a;
 }
 
 ::selection {
