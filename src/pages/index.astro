@@ -23,22 +23,25 @@ const developerStartDate = '2020-02-01';
 
 const projects = [
   {
-    name: 'Terminal Portfolio',
-    stack: 'Astro + Tailwind',
-    focus: 'TUI layout, accessibility, deployment',
-    status: 'In progress',
-  },
-  {
-    name: 'Automation Toolkit',
-    stack: 'TypeScript + CLI',
-    focus: 'Operational workflows and repeatable tasks',
-    status: 'Planned',
-  },
-  {
-    name: 'Design System Notes',
-    stack: 'Markdown + tokens',
-    focus: 'Reusable patterns and UI consistency',
+    name: 'Dadlister',
+    stack: 'Java 8, JSP, Tomcat, MySQL',
+    focus: 'Server-side rendering, backend structure, and classic Java web app delivery',
     status: 'Archived',
+    repoUrl: 'https://github.com/The-Tech-Warriors/DadLister/tree/master',
+  },
+  {
+    name: 'Hobbyist',
+    stack: 'Materialize, JavaScript, FileStack API, HTML Comment Box API, jQuery, Java, MySQL, Spring Boot, Thymeleaf',
+    focus: 'Full-stack application showcasing frontend and backend integration',
+    status: 'Archived',
+    repoUrl: 'https://github.com/Hobbyist-Capstone/Hobbyist',
+  },
+  {
+    name: 'Coffee Project',
+    stack: 'HTML, CSS, JavaScript',
+    focus: 'Entry project showcasing vanilla web development fundamentals',
+    status: 'Archived',
+    repoUrl: 'https://github.com/coffee-project-val-and-ramon/coffee-project-1',
   },
 ];
 
@@ -53,8 +56,8 @@ const currentYear = new Date().getFullYear();
       <p class="max-w-3xl text-sm leading-7 text-terminal-text sm:text-base">
         I’m Valeria Meza, also Val, a software engineer driven by the thrill of solving mysteries and puzzles. I build interfaces that prioritize structure, speed, and clarity.
       </p>
-      <div class="rounded-xl border border-terminal-border/70 bg-terminal-panelAlt p-4 text-sm text-terminal-muted">
-        <p class="text-terminal-info">status</p>
+      <div class="rounded-xl border border-terminal-warn/20 bg-terminal-panelAlt p-4 text-sm text-terminal-muted shadow-[inset_2px_0_0_0_rgba(245,211,106,0.28)]">
+        <p class="text-terminal-info">$ status</p>
         <ul class="mt-2 space-y-1">
           <li><span class="text-terminal-info">role:</span> Software Engineer</li>
           <li><span class="text-terminal-info">focus:</span> backend systems, databases, cloud infrastructure</li>

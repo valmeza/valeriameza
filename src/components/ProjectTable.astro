@@ -16,7 +16,24 @@ const { projects = [] } = Astro.props;
       <tbody>
         {projects.map((project) => (
           <tr class="border-t border-terminal-border/50">
-            <td class="px-4 py-4 align-top font-medium text-terminal-text">{project.name}</td>
+            <td class="px-4 py-4 align-top font-medium text-terminal-text">
+              {project.repoUrl ? (
+                <a
+                  class="project-link inline-flex w-full items-center justify-between gap-2 leading-none transition focus:outline-none"
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.name} GitHub repository`}
+                >
+                  <span class="leading-none">{project.name}</span>
+                  <svg viewBox="0 0 24 24" class="project-link__icon" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.62 2 12.31c0 4.55 2.87 8.41 6.84 9.78.5.1.68-.22.68-.5v-1.95c-2.78.62-3.37-1.22-3.37-1.22-.46-1.22-1.13-1.55-1.13-1.55-.92-.65.07-.64.07-.64 1.02.08 1.56 1.08 1.56 1.08.9 1.6 2.35 1.14 2.93.87.09-.67.35-1.14.63-1.4-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.06a9.14 9.14 0 0 1 5 0c1.9-1.34 2.75-1.06 2.75-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92v2.84c0 .28.18.61.69.5A10.38 10.38 0 0 0 22 12.31C22 6.62 17.52 2 12 2Z" />
+                  </svg>
+                </a>
+              ) : (
+                <span>{project.name}</span>
+              )}
+            </td>
             <td class="px-4 py-4 align-top text-terminal-muted">{project.stack}</td>
             <td class="px-4 py-4 align-top text-terminal-muted">{project.focus}</td>
             <td class="px-4 py-4 align-top text-terminal-accent">{project.status}</td>
@@ -25,9 +42,13 @@ const { projects = [] } = Astro.props;
       </tbody>
     </table>
   </div>
-  <div class="border-t border-terminal-border/70 px-4 py-3 text-xs text-terminal-muted">
-    <span class="text-terminal-info">[J]</span> next project
-    <span class="mx-2 text-terminal-border">|</span>
-    <span class="text-terminal-info">[K]</span> previous project
-  </div>
 </div>
+
+<style>
+  .project-link__icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+  }
+</style>
