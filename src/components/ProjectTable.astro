@@ -5,7 +5,7 @@ const { projects = [] } = Astro.props;
 <div class="overflow-hidden rounded-xl border border-terminal-border/70 bg-terminal-bg">
   <div class="overflow-x-auto">
     <table class="min-w-full border-collapse text-left text-sm">
-      <thead class="bg-terminal-panelAlt text-terminal-muted">
+      <thead class="bg-terminal-panelAlt text-terminal-muted max-sm:sr-only">
         <tr>
           <th class="px-4 py-3 font-medium">Project</th>
           <th class="px-4 py-3 font-medium">Stack</th>
@@ -15,12 +15,12 @@ const { projects = [] } = Astro.props;
       </thead>
       <tbody>
         {projects.map((project) => (
-          <tr class="border-t border-terminal-border/50">
-            <td class="px-4 py-4 align-top font-medium text-terminal-text">
-              <div class="space-y-3">
+          <tr class="border-t border-terminal-border/50 max-sm:flex max-sm:flex-col max-sm:gap-2 max-sm:border max-sm:border-terminal-border/50 max-sm:rounded-xl max-sm:p-4 max-sm:mb-3">
+            <td class="px-4 py-4 align-top font-medium text-terminal-text max-sm:px-0 max-sm:py-0" data-label="Project">
+              <div class="space-y-3 max-sm:flex max-sm:items-center max-sm:gap-3 max-sm:space-y-0">
                 {project.thumbnailUrl ? (
                   <img
-                    class="project-thumb"
+                    class="project-thumb max-sm:w-12 max-sm:h-12"
                     src={project.thumbnailUrl}
                     alt={project.thumbnailAlt || `${project.name} preview`}
                     loading="lazy"
@@ -44,9 +44,9 @@ const { projects = [] } = Astro.props;
               )}
               </div>
             </td>
-            <td class="px-4 py-4 align-top text-terminal-muted">{project.stack}</td>
-            <td class="px-4 py-4 align-top text-terminal-muted">{project.focus}</td>
-            <td class="px-4 py-4 align-top text-terminal-accent">{project.status}</td>
+            <td class="px-4 py-4 align-top text-terminal-muted max-sm:px-0 max-sm:py-0"><span class="sr-only max-sm:not-sr-only max-sm:text-terminal-muted max-sm:text-xs">Stack: </span>{project.stack}</td>
+            <td class="px-4 py-4 align-top text-terminal-muted max-sm:px-0 max-sm:py-0"><span class="sr-only max-sm:not-sr-only max-sm:text-terminal-muted max-sm:text-xs">Focus: </span>{project.focus}</td>
+            <td class="px-4 py-4 align-top text-terminal-accent max-sm:px-0 max-sm:py-0"><span class="sr-only max-sm:not-sr-only max-sm:text-terminal-muted max-sm:text-xs">Status: </span>{project.status}</td>
           </tr>
         ))}
       </tbody>
